@@ -1,0 +1,177 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'zrnicregular';
+}
+
+html, body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+.whiteboard, .blackboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  opacity: 0;
+}
+
+.whiteboard {
+  background: #F9F9F9;
+  z-index: 0;
+  animation: showOpacity 1s forwards;
+}
+
+.blackboard {
+  background: black;
+  z-index: 2;
+  animation: showOpacity .6s forwards;
+  animation-delay: 7s;
+}
+
+.disc {
+  width: 240px;
+  height: 240px;
+  transform: rotate(45deg);
+  background: linear-gradient(45deg, rgba(222,53,34,1) 0%, rgba(238,219,50,1) 50%, rgba(222,53,34,1) 100%);
+  overflow: hidden;
+  opacity: 0;
+  animation: showOpacity 0.1s forwards;
+  animation-delay: 1s;
+  position: relative;
+  z-index: 1;
+}
+
+.half-disc-1, .half-disc-2 {
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  z-index: 2;
+}
+
+.half-disc-1 {
+  background: linear-gradient(45deg, #D91A30 0%, rgba(238,219,50,0) 50%);
+  left: 0;
+  bottom: 0;
+  animation: moveDisc1 1s forwards;
+  animation-delay: 1.1s;
+}
+
+.half-disc-2 {
+  background: linear-gradient(-135deg, #D91A30 0%, rgba(238,219,50,0) 50%);
+  right: 0;
+  top: 0;
+  animation: moveDisc2 1s forwards;
+  animation-delay: 1.1s;
+}
+
+h2, h3, h4 {
+  color: #083C9A;
+  z-index: 1;
+  opacity: 0;
+  animation: showOpacity .3s forwards;
+  animation-delay: 2s;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 66px;
+}
+
+h3 {
+  margin-top: 70px;
+  line-height: 28px;
+}
+
+h3 span, h4 span {
+  display: block;
+  font-family: Arial;
+  font-weight: lighter;
+}
+
+h3 span:first-child {
+  font-size: 38px;
+}
+
+h3 span:last-child {
+  font-size: 22px;
+}
+
+h4 {
+   color: white;
+   animation: showOpacity .3s forwards;
+   animation-delay: 7.6s;
+   letter-spacing: 4px;
+}
+
+h4 span:last-child {
+  line-height: 60px;
+}
+
+.blackboard img {
+  width: 340px;
+  margin-left: 10px;
+  opacity: 0;
+  animation: showOpacity .6s forwards;
+  animation-delay: 7.4s;
+}
+
+
+@keyframes showWhiteBoard {
+  from {
+    background: black;
+  }
+
+  to {
+    background: white;
+  }
+}
+
+
+@keyframes showOpacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveDisc1 {
+  from {
+    width: 240px;
+    height: 240px;
+    opacity: .3;
+    transform: translate(0);
+  }
+
+  to {
+    width: 88px;
+    height: 88px;
+    opacity: 1;
+    transform: translate(36px, -120px);
+  }
+}
+
+@keyframes moveDisc2 {
+  from {
+    width: 240px;
+    height: 240px;
+    opacity: .3;
+    transform: translate(0);
+  }
+
+  to {
+    width: 88px;
+    height: 88px;
+    opacity: 1;
+    transform: translate(-36px, 120px);
+  }
+}
